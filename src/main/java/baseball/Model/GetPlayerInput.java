@@ -17,5 +17,5 @@ public interface GetPlayerInput {
      * 게임을 종료한 후 게임을 다시 시작하거나 완전히 종료 할 것인지 문의
      * @return 1: 새로운 게임 시작, 2: 게임 종료
      */
-    int gameStatus();
+    String gameStatus();
 }
