@@ -58,7 +58,7 @@ public class GameRuleImpl implements GameRule{
     @Override
     public GameInfo count(GameInfo gameInfo, int ballCont, int strikeCount, boolean notingResult) {
         gameInfo.setResultBall(ballCont);
-        gameInfo.setResultStrike(ballCont);
+        gameInfo.setResultStrike(strikeCount);
         gameInfo.setResultNoting(notingResult);
 
         return gameInfo;
