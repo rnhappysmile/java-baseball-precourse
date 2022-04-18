@@ -20,7 +20,7 @@ public class GenerateBallsImpl implements GenerateBalls{
             balls = verifyBall(balls, newBall);
         }
 
-        gameInfo.setBalls(Integer.parseInt(balls.toString()));
+        gameInfo.setBalls(balls.toString());
 
         return gameInfo;
     }
