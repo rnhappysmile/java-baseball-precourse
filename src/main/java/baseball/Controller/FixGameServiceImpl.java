@@ -15,7 +15,7 @@ public class FixGameServiceImpl implements FixGameService{
     Message message = new MessageImpl();
 
     @Override
-    public void start() {
+    public void start() throws IllegalArgumentException{
         String gameStatus = "1";
 
         gameInfo.init();
