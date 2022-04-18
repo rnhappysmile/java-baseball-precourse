@@ -5,7 +5,7 @@ import baseball.GameInfo;
 public class MessageImpl implements Message{
     @Override
     public void requestInputBalls() {
-        System.out.println("숫자를 입력해주세요 : ");
+        System.out.print("숫자를 입력해주세요 : ");
     }
 
     @Override
