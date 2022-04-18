@@ -18,8 +18,7 @@ public class FixGameServiceImpl implements FixGameService{
     public void start() throws IllegalArgumentException{
         String gameStatus = "1";
 
-        gameInfo.init();
-        gameInfo = generateBalls.generate(gameInfo);
+        gameInit();
 
         while(gameStatus.equals(GameRun)) {
             message.requestInputBalls();
@@ -27,15 +26,31 @@ public class FixGameServiceImpl implements FixGameService{
             gameInfo = gameRule.check(gameInfo);
 
             message.gameResult(gameInfo);
-            if (gameInfo.getResultStrike() == 3) {
-                message.requestRetryGame();
-                gameStatus = getPlayerInput.gameStatus();
+            gameStatus = checkThreeStrike(gameStatus);
+        }
+    }
 
-                if (gameStatus.equals(GameRun)) {
-                    gameInfo.init();
-                    gameInfo = generateBalls.generate(gameInfo);
-                }
-            }
+    @Override
+    public void gameInit() {
+        gameInfo.init();
+        gameInfo = generateBalls.generate(gameInfo);
+    }
+
+    @Override
+    public String checkThreeStrike(String gameStatus) {
+        if (gameInfo.getResultStrike() == 3) {
+            message.requestRetryGame();
+            gameStatus = getPlayerInput.gameStatus();
+            checkRetry(GameRun);
+        }
+
+        return gameStatus;
+    }
+
+    @Override
+    public void checkRetry(String gameStatus) {
+        if (gameStatus.equals(GameRun)) {
+            gameInit();
         }
     }
 }

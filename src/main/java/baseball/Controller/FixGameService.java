@@ -9,4 +9,10 @@ public interface FixGameService {
      * 숫자 야구 게임의 시작
      */
     void start();
+
+    void gameInit();
+
+    String checkThreeStrike(String gameStatus);
+
+    void checkRetry(String gameStatus);
 }
